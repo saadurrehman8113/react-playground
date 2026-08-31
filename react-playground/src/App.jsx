@@ -1,13 +1,12 @@
-import { useState } from "react";
-import heroImg from "./assets/hero.png";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
 import "./App.css";
+import ReactMemo from "./components/React Memo/ReactMemo";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <></>;
+  return (
+    <div className="container">
+      <ReactMemo />
+    </div>
+  );
 }
 
 export default App;
