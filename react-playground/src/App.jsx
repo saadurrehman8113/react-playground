@@ -1,10 +1,10 @@
 import "./App.css";
-import ReactMemo from "./components/React Memo/ReactMemo";
+import ReactMemoParent from "./components/React Memo/ReactMemoParent";
 
 function App() {
   return (
     <div className="container">
-      <ReactMemo />
+      <ReactMemoParent />
     </div>
   );
 }

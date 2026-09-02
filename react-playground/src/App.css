@@ -1,6 +1,10 @@
 .container {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 50vh; /* or whatever height you need */
+  align-items: flex-start;
+  width: 100%;
+  min-height: 100vh;
+  padding: 1rem 1.5rem 2rem;
+  background: #f8fafc;
 }
