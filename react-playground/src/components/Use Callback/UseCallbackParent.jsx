@@ -1,5 +1,4 @@
 import { useState, useCallback, useRef } from "react";
-import { ToastContainer, toast } from "react-toastify";
 
 import UseCallbackChild1 from "./UseCallbackChild1";
 import UseCallbackChild2 from "./UseCallbackChild2";
@@ -59,16 +58,7 @@ const UseCallbackParent = () => {
             <input
               type="checkbox"
               checked={useCallbackEnabled}
-              onChange={(e) => {
-                setUseCallbackEnabled(e.target.checked);
-                e.target.checked
-                  ? toast(
-                      "useCallback enabled, now notice child 2 will not re-render by updating Parent State Value. ",
-                    )
-                  : toast(
-                      "useCallback disabled, now notice child 2 re-render by updating Parent State Value. Even though it is wrapped inside React.memo already. ",
-                    );
-              }}
+              onChange={(e) => setUseCallbackEnabled(e.target.checked)}
               className="sr-only peer"
             />
             <span className="relative w-11 h-6 bg-gray-300 rounded-full transition-colors peer-checked:bg-blue-500 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:bg-white after:rounded-full after:transition-transform peer-checked:after:translate-x-5" />
@@ -96,7 +86,6 @@ const UseCallbackParent = () => {
           }
         />
       </div>
-      <ToastContainer />
     </section>
   );
 };

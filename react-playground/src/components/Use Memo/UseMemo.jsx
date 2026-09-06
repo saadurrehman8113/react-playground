@@ -85,7 +85,7 @@ const UseMemo = () => {
           <div className="flex flex-col gap-3 sm:col-span-2">
             <div className="grid grid-cols-[13rem_4rem] justify-center items-center gap-3">
               <span className="px-3 py-2 text-lg font-semibold text-center text-gray-700 bg-slate-200 rounded-lg">
-                Result without UseMemo
+                Result without useMemo
               </span>
               <span className="text-lg font-semibold text-gray-800 text-center bg-white px-3 py-1 rounded-lg shadow-inner">
                 {result}
@@ -94,7 +94,7 @@ const UseMemo = () => {
 
             <div className="grid grid-cols-[13rem_4rem] justify-center items-center gap-3">
               <span className="px-3 py-2 text-lg font-semibold text-center text-gray-700 bg-slate-200 rounded-lg">
-                Result with UseMemo
+                Result with useMemo
               </span>
               <span className="text-lg font-semibold text-gray-800 text-center bg-white px-3 py-1 rounded-lg shadow-inner">
                 {memoizedResult}
@@ -108,7 +108,7 @@ const UseMemo = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer style={{ top: "5rem" }} />
     </section>
   );
 };
