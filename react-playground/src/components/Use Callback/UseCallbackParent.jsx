@@ -1,8 +1,8 @@
 import { useState, useCallback, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
-import ReactMemoChild1 from "./UseCallbackChild1";
-import ReactMemoChild2 from "./UseCallbackChild2";
+import UseCallbackChild1 from "./UseCallbackChild1";
+import UseCallbackChild2 from "./UseCallbackChild2";
 
 const UseCallbackParent = () => {
   const [counter, setCounter] = useState(0);
@@ -79,7 +79,7 @@ const UseCallbackParent = () => {
       <div className="w-px h-8 bg-gray-400" aria-hidden="true" />
 
       <div className="relative grid w-full max-w-6xl grid-cols-1 gap-6 pt-6 md:grid-cols-2 before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-px before:bg-gray-400">
-        <ReactMemoChild1
+        <UseCallbackChild1
           renderCounts={renderCounts}
           incrementRenderCount={
             useCallbackEnabled
@@ -87,7 +87,7 @@ const UseCallbackParent = () => {
               : incrementRenderCount
           }
         />
-        <ReactMemoChild2
+        <UseCallbackChild2
           renderCounts={renderCounts}
           incrementRenderCount={
             useCallbackEnabled

@@ -1,3 +1,5 @@
+import React from "react";
+
 const UseCallbackChild2 = React.memo(
   ({ renderCounts, incrementRenderCount }) => {
     incrementRenderCount("child2");
