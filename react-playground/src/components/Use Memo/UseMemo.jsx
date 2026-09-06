@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 function slowFib(n) {
@@ -14,7 +14,13 @@ const UseMemo = () => {
   const renderCounts = useRef(0);
   const debounceRef = useRef(null);
 
-  let memoizedResult = 0;
+  useEffect(() => {
+    return () => {
+      if (debounceRef.current) {
+        clearTimeout(debounceRef.current);
+      }
+    };
+  }, []);
 
   const calculate = (slowFibInput) => {
     toast("Calculating without useMemo");
@@ -23,7 +29,7 @@ const UseMemo = () => {
     setResult(result);
   };
 
-  memoizedResult = useMemo(() => {
+  const memoizedResult = useMemo(() => {
     toast("Calculating in useMemo");
     return slowFib(slowFibInput);
   }, [slowFibInput]);
@@ -61,9 +67,9 @@ const UseMemo = () => {
           <input
             type="number"
             placeholder="Numeric Value b/w 0-30"
-            className="w-[17.75rem] justify-self-center sm:col-span-2 px-4 py-2 text-gray-800 bg-white border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full max-w-[17.75rem] justify-self-center sm:col-span-2 px-4 py-2 text-gray-800 bg-white border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
             onChange={(e) => {
-              const value = e.target.value;
+              const value = Number(e.target.value);
 
               if (debounceRef.current) {
                 clearTimeout(debounceRef.current);
@@ -83,18 +89,18 @@ const UseMemo = () => {
           />
 
           <div className="flex flex-col gap-3 sm:col-span-2">
-            <div className="grid grid-cols-[13rem_4rem] justify-center items-center gap-3">
+            <div className="grid grid-cols-1 justify-center items-center gap-3 sm:grid-cols-[13rem_4rem]">
               <span className="px-3 py-2 text-lg font-semibold text-center text-gray-700 bg-slate-200 rounded-lg">
-                Result without UseMemo
+                Result without useMemo
               </span>
               <span className="text-lg font-semibold text-gray-800 text-center bg-white px-3 py-1 rounded-lg shadow-inner">
                 {result}
               </span>
             </div>
 
-            <div className="grid grid-cols-[13rem_4rem] justify-center items-center gap-3">
+            <div className="grid grid-cols-1 justify-center items-center gap-3 sm:grid-cols-[13rem_4rem]">
               <span className="px-3 py-2 text-lg font-semibold text-center text-gray-700 bg-slate-200 rounded-lg">
-                Result with UseMemo
+                Result with useMemo
               </span>
               <span className="text-lg font-semibold text-gray-800 text-center bg-white px-3 py-1 rounded-lg shadow-inner">
                 {memoizedResult}
@@ -108,7 +114,7 @@ const UseMemo = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer className="use-memo-toast" />
     </section>
   );
 };

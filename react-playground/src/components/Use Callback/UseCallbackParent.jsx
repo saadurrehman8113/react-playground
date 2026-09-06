@@ -1,5 +1,4 @@
 import { useState, useCallback, useRef } from "react";
-import { ToastContainer, toast } from "react-toastify";
 
 import UseCallbackChild1 from "./UseCallbackChild1";
 import UseCallbackChild2 from "./UseCallbackChild2";
@@ -33,7 +32,7 @@ const UseCallbackParent = () => {
         </h2>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <button
               onClick={() => setCounter(counter + 1)}
               className="px-4 py-2 font-medium rounded-lg transition-colors cursor-pointer bg-blue-500 text-white hover:bg-blue-600 active:scale-95"
@@ -45,7 +44,7 @@ const UseCallbackParent = () => {
             </span>
           </div>
 
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <span className="px-3 py-2 text-lg font-semibold text-center text-gray-700 bg-slate-200 rounded-lg">
               Render Count
             </span>
@@ -59,16 +58,7 @@ const UseCallbackParent = () => {
             <input
               type="checkbox"
               checked={useCallbackEnabled}
-              onChange={(e) => {
-                setUseCallbackEnabled(e.target.checked);
-                e.target.checked
-                  ? toast(
-                      "useCallback enabled, now notice child 2 will not re-render by updating Parent State Value. ",
-                    )
-                  : toast(
-                      "useCallback disabled, now notice child 2 re-render by updating Parent State Value. Even though it is wrapped inside React.memo already. ",
-                    );
-              }}
+              onChange={(e) => setUseCallbackEnabled(e.target.checked)}
               className="sr-only peer"
             />
             <span className="relative w-11 h-6 bg-gray-300 rounded-full transition-colors peer-checked:bg-blue-500 after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:bg-white after:rounded-full after:transition-transform peer-checked:after:translate-x-5" />
@@ -96,7 +86,6 @@ const UseCallbackParent = () => {
           }
         />
       </div>
-      <ToastContainer />
     </section>
   );
 };
