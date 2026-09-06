@@ -53,9 +53,34 @@
   background: #f8fafc;
 }
 
+.use-memo-toast {
+  top: 5rem !important;
+}
+
 @media (max-width: 600px) {
   .navbar {
     align-items: flex-start;
     flex-direction: column;
+    padding: 0.875rem 1rem;
+  }
+
+  .navbar__links {
+    width: 100%;
+  }
+
+  .navbar__link {
+    flex: 1 1 auto;
+  }
+
+  .container {
+    min-height: calc(100vh - 112px);
+    padding: 1rem;
+  }
+
+  .use-memo-toast {
+    top: 10rem !important;
+    right: 0.75rem;
+    left: 0.75rem;
+    width: auto;
   }
 }

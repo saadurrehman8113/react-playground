@@ -32,7 +32,7 @@ const UseCallbackParent = () => {
         </h2>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <button
               onClick={() => setCounter(counter + 1)}
               className="px-4 py-2 font-medium rounded-lg transition-colors cursor-pointer bg-blue-500 text-white hover:bg-blue-600 active:scale-95"
@@ -44,7 +44,7 @@ const UseCallbackParent = () => {
             </span>
           </div>
 
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <span className="px-3 py-2 text-lg font-semibold text-center text-gray-700 bg-slate-200 rounded-lg">
               Render Count
             </span>
